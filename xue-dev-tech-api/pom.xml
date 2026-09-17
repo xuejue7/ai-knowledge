@@ -14,6 +14,17 @@
     <packaging>jar</packaging>
 
     <dependencies>
+        <!-- 接口层用到 org.springframework.ai.chat.ChatResponse / reactor 的 Flux，必须显式声明 spring-ai-core；
+             版本由根 pom 的 spring-ai-bom(0.8.1) 统一管理，不需要写 version -->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-core</artifactId>
+        </dependency>
+        <!-- IRAGService 的入参用到 MultipartFile（org.springframework.web.multipart），版本由 spring-boot 管理 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

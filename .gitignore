@@ -31,3 +31,8 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### 运行时产物（logback 输出、Git 仓库克隆目录） ###
+data/
+git-cloned-repo/
+log/

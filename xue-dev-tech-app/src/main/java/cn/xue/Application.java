@@ -1,17 +1,15 @@
-package cn.bugstack.airag;
+package cn.xue;
 
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * @description AI RAG 知识库 应用启动入口
- * @author xue
- */
 @SpringBootApplication
+@Configurable
 public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(Application.class);
     }
 
 }

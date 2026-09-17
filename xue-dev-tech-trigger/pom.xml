@@ -10,14 +10,42 @@
         <version>1.0</version>
     </parent>
 
+    <!-- artifactId 必须与目录名、根 pom 的 <modules>xue-dev-tech-trigger</modules> 一致，
+         否则 Maven 报 "Child module ... does not exist"，IDEA 也就不会建这个模块 -->
     <artifactId>xue-dev-tech-trigger</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
+        <!-- 本工程的 api 模块（复制过来的 pom 里写的是 xfg-dev-tech-api，本项目没有这个构件） -->
         <dependency>
             <groupId>cn.bugstack</groupId>
             <artifactId>xue-dev-tech-api</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Spring AI：版本由根 pom 的 spring-ai-bom(0.8.1) 统一管理，不写 version -->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-openai-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-ollama</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-pgvector-store</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-tika-document-reader</artifactId>
+        </dependency>
+
+        <!-- 工具 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -30,13 +58,20 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
+        <!-- RAGController 用了 org.apache.commons.io.FileUtils -->
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+
+        <!-- Redis / Git -->
+        <dependency>
             <groupId>org.redisson</groupId>
-            <artifactId>redisson-spring-boot-starter</artifactId>
+            <artifactId>redisson</artifactId>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jgit</groupId>
