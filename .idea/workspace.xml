@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b8ddc4b2-b84c-4701-98fb-d1d3f044fb41" name="更改" comment="steam_api">
+      <change afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/java/cn/xue/config/OllamaConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/java/cn/xue/config/RedisClientConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/java/cn/xue/config/RedisClientConfigProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/resources/application-test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xue-dev-tech-trigger/src/main/java/cn/xue/dev/trigger/http/OllamaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xue-dev-tech-trigger/src/main/java/cn/xue/dev/trigger/http/OpenAiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xue-dev-tech-trigger/src/main/java/cn/xue/dev/trigger/http/RAGController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xue-dev-tech-trigger/src/main/java/cn/xue/dev/trigger/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-rag-knowledge.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xue-dev-tech-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xue-dev-tech-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xue-dev-tech-api/xue-dev-tech-api.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xue-dev-tech-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xue-dev-tech-app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xue-dev-tech-app/src/main/java/cn/bugstack/airag/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/java/cn/xue/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xue-dev-tech-app/xue-dev-tech-app.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xue-dev-tech-trigger/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xue-dev-tech-trigger/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xue-dev-tech-trigger/xue-dev-tech-trigger.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="customMavenHome" value="D:\apache-maven-3.9.12-bin\apache-maven-3.9.12" />
+        <option name="localRepository" value="D:\apache-maven-3.9.12-bin\apache-maven-3.9.12\maven-repo" />
+        <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
+        <option name="showDialogWithAdvancedSettings" value="true" />
+        <option name="useMavenConfig" value="false" />
+        <option name="userSettingsFile" value="D:\apache-maven-3.9.12-bin\apache-maven-3.9.12\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="3IEItGkimYDfXQwQELo1XtQJ63f" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.Unknown [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ai-rag-knowledge [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ai-rag-knowledge [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.xue-dev-tech-api [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.xue-dev-tech-trigger [install].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;发现新的/更新的数据库配置&quot;,
+    &quot;Notification.DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Application (1).executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;stream__api&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/idea_demo/ai-rag-knowledge&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/idea_demo/ai-rag-knowledge/xue-dev-tech-trigger/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\idea_demo\ai-rag-knowledge" />
+      <recent name="D:\idea_demo\ai-rag-knowledge\xue-dev-tech-api\src" />
+      <recent name="D:\idea_demo\ai-rag-knowledge\xue-dev-tech-app\src\main\java\cn\xue" />
+      <recent name="D:\idea_demo\ai-rag-knowledge\xue-dev-tech-app\src\main" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\idea_demo\ai-rag-knowledge\xfg-dev-tech-trigger\src\main\java\cn\xue\dev" />
+      <recent name="D:\idea_demo\ai-rag-knowledge\xfg-dev-tech-trigger\src\main\java\cn" />
+      <recent name="D:\idea_demo\ai-rag-knowledge\xue-dev-tech-api\src\main\java\main" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Application (1)">
+    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="xue-dev-tech-app" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.xue.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="xue-dev-tech-app" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.bugstack.airag.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.138" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.29346.138" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="b8ddc4b2-b84c-4701-98fb-d1d3f044fb41" name="更改" comment="" />
+      <created>1787323519695</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1787323519695</updated>
+      <workItem from="1787323523472" duration="1922000" />
+      <workItem from="1787409595251" duration="2373000" />
+      <workItem from="1789315821421" duration="682000" />
+      <workItem from="1789398767901" duration="2137000" />
+      <workItem from="1789400963103" duration="23000" />
+      <workItem from="1789401002847" duration="362000" />
+      <workItem from="1789401579380" duration="1912000" />
+      <workItem from="1789403509248" duration="422000" />
+      <workItem from="1789656972731" duration="304000" />
+    </task>
+    <task id="LOCAL-00001" summary="steam_api">
+      <option name="closed" value="true" />
+      <created>1789399182215</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1789399182215</updated>
+    </task>
+    <task id="LOCAL-00002" summary="steam_api">
+      <option name="closed" value="true" />
+      <created>1789399198162</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1789399198162</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="stream_api" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="steam_api" />
+    <option name="LAST_COMMIT_MESSAGE" value="steam_api" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

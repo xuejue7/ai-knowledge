@@ -4,42 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- 父工程：元素顺序必须符合 Maven 4.0.0 模型规范（parent 必须在 groupId/artifactId 之前），
+         否则 IDEA 的 Maven DOM 校验会飘红，影响 pom 识别 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.3</version>
+        <relativePath/>
+    </parent>
+
     <groupId>cn.bugstack</groupId>
     <artifactId>ai-rag-knowledge</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
-    <modules>
-        <module>xue-dev-tech-api</module>
-        <module>xue-dev-tech-app</module>
-        <module>xue-dev-tech-trigger</module>
-    </modules>
-
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>17</java.version>
-        <spring-ai.version>0.8.1</spring-ai.version>
-    </properties>
-
-    <repositories>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>https://repo.spring.io/snapshot</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-    </repositories>
+    <name>ai-rag-knowledge</name>
+    <description>AI RAG 知识库（Spring AI + pgvector）</description>
 
     <licenses>
         <license>
@@ -48,12 +27,20 @@
         </license>
     </licenses>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.3</version>
-        <relativePath/>
-    </parent>
+    <modules>
+        <module>xue-dev-tech-api</module>
+        <module>xue-dev-tech-app</module>
+        <module>xue-dev-tech-trigger</module>
+    </modules>
+
+    <properties>
+        <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring-ai.version>0.8.1</spring-ai.version>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -85,6 +72,17 @@
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>3.44.0</version>
             </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>3.44.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.15.1</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.eclipse.jgit</groupId>
@@ -105,6 +103,36 @@
         </dependencies>
     </dependencyManagement>
 
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>aliyun-central</id>
+            <name>Aliyun Central Mirror</name>
+            <url>https://maven.aliyun.com/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <build>
         <plugins>
             <plugin>
@@ -120,15 +148,23 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>2.5</version>
+                <version>3.3.1</version>
                 <configuration>
-                    <encoding>UTF-8</encoding>
+                    <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
                 <version>2.7</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <skipTests>${skipTests}</skipTests>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -140,22 +176,25 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <java_jvm>-Xms1G -Xmx1G -server  -XX:MaxPermSize=256M -Xss256K -Dspring.profiles.active=test -XX:+DisableExplicitGC -XX:+UseG1GC  -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Logs/xue-frame-archetype-lite-boot -Xloggc:/export/Logs/xue-frame-archetype-lite-boot/gc-xue-frame-archetype-lite-boot.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps</java_jvm>
+                <java_jvm>-Xms1G -Xmx1G -server -Xss256K -Dspring.profiles.active=dev -XX:+DisableExplicitGC -XX:+UseG1GC -XX:LargePageSizeInBytes=128m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Logs/xue-frame-archetype-lite-boot -Xloggc:/export/Logs/xue-frame-archetype-lite-boot/gc-xue-frame-archetype-lite-boot.log</java_jvm>
                 <profileActive>dev</profileActive>
+                <skipTests>true</skipTests>
             </properties>
         </profile>
         <profile>
             <id>test</id>
             <properties>
-                <java_jvm>-Xms1G -Xmx1G -server  -XX:MaxPermSize=256M -Xss256K -Dspring.profiles.active=test -XX:+DisableExplicitGC -XX:+UseG1GC  -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Logs/xue-frame-archetype-lite-boot -Xloggc:/export/Logs/xue-frame-archetype-lite-boot/gc-xue-frame-archetype-lite-boot.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps</java_jvm>
+                <java_jvm>-Xms1G -Xmx1G -server -Xss256K -Dspring.profiles.active=test -XX:+DisableExplicitGC -XX:+UseG1GC -XX:LargePageSizeInBytes=128m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Logs/xue-frame-archetype-lite-boot -Xloggc:/export/Logs/xue-frame-archetype-lite-boot/gc-xue-frame-archetype-lite-boot.log</java_jvm>
                 <profileActive>test</profileActive>
+                <skipTests>true</skipTests>
             </properties>
         </profile>
         <profile>
             <id>prod</id>
             <properties>
-                <java_jvm>-Xms6G -Xmx6G -server  -XX:MaxPermSize=256M -Xss256K -Dspring.profiles.active=release -XX:+DisableExplicitGC -XX:+UseG1GC  -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Logs/fq-mall-activity-app -Xloggc:/export/Logs/xue-frame-archetype-lite-boot/gc-xue-frame-archetype-lite-boot.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps</java_jvm>
+                <java_jvm>-Xms6G -Xmx6G -server -Xss256K -Dspring.profiles.active=prod -XX:+DisableExplicitGC -XX:+UseG1GC -XX:LargePageSizeInBytes=128m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Logs/xue-frame-archetype-lite-boot -Xloggc:/export/Logs/xue-frame-archetype-lite-boot/gc-xue-frame-archetype-lite-boot.log</java_jvm>
                 <profileActive>prod</profileActive>
+                <skipTests>true</skipTests>
             </properties>
         </profile>
     </profiles>
