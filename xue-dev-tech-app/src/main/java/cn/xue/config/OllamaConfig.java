@@ -1,65 +1,36 @@
-//package cn.xue.config;
-//
-//import org.springframework.ai.ollama.OllamaChatClient;
-//import org.springframework.ai.ollama.OllamaEmbeddingClient;
-//import org.springframework.ai.ollama.api.OllamaApi;
-//import org.springframework.ai.ollama.api.OllamaOptions;
-//import org.springframework.ai.openai.OpenAiEmbeddingClient;
-//import org.springframework.ai.openai.api.OpenAiApi;
-//import org.springframework.ai.transformer.splitter.TokenTextSplitter;
-//import org.springframework.ai.vectorstore.PgVectorStore;
-//import org.springframework.ai.vectorstore.SimpleVectorStore;
-//import org.springframework.beans.factory.annotation.Value;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.jdbc.core.JdbcTemplate;
-//
-//@Configuration
-//public class OllamaConfig {
-//
-//    @Bean
-//    public OllamaApi ollamaApi(@Value("${spring.ai.ollama.base-url}") String baseUrl) {
-//        return new OllamaApi(baseUrl);
-//    }
-//
-//    @Bean
-//    public OpenAiApi openAiApi(@Value("${spring.ai.openai.base-url}") String baseUrl, @Value("${spring.ai.openai.api-key}") String apikey) {
-//        return new OpenAiApi(baseUrl, apikey);
-//    }
-//
-//    @Bean
-//    public OllamaChatClient ollamaChatClient(OllamaApi ollamaApi) {
-//        return new OllamaChatClient(ollamaApi);
-//    }
-//
-//    @Bean
-//    public TokenTextSplitter tokenTextSplitter() {
-//        return new TokenTextSplitter();
-//    }
-//
-//    @Bean
-//    public SimpleVectorStore vectorStore(@Value("${spring.ai.rag.embed}") String model, OllamaApi ollamaApi, OpenAiApi openAiApi) {
-//        if ("nomic-embed-text".equalsIgnoreCase(model)) {
-//            OllamaEmbeddingClient embeddingClient = new OllamaEmbeddingClient(ollamaApi);
-//            embeddingClient.withDefaultOptions(OllamaOptions.create().withModel("nomic-embed-text"));
-//            return new SimpleVectorStore(embeddingClient);
-//        } else {
-//            OpenAiEmbeddingClient embeddingClient = new OpenAiEmbeddingClient(openAiApi);
-//            return new SimpleVectorStore(embeddingClient);
-//        }
-//    }
-//
-//    @Bean
-//    public PgVectorStore pgVectorStore(@Value("${spring.ai.rag.embed}") String model, OllamaApi ollamaApi, OpenAiApi openAiApi, JdbcTemplate jdbcTemplate) {
-//        if ("nomic-embed-text".equalsIgnoreCase(model)) {
-//            OllamaEmbeddingClient embeddingClient = new OllamaEmbeddingClient(ollamaApi);
-//            embeddingClient.withDefaultOptions(OllamaOptions.create().withModel("nomic-embed-text"));
-//            return new PgVectorStore(jdbcTemplate, embeddingClient);
-//        } else {
-//            OpenAiEmbeddingClient embeddingClient = new OpenAiEmbeddingClient(openAiApi);
-//            return new PgVectorStore(jdbcTemplate, embeddingClient);
-//        }
-//    }
-//
-//
-//}
+package cn.xue.config;
+
+import org.springframework.ai.embedding.EmbeddingClient;
+import org.springframework.ai.transformer.splitter.TokenTextSplitter;
+import org.springframework.ai.vectorstore.SimpleVectorStore;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * Ollama / Spring AI 相关的手工装配。
+ *
+ * 背景说明（Spring AI 0.8.1）：
+ * 1. EmbeddingClient 由 starter 自动配置提供。项目同时引入了
+ *    spring-ai-ollama-spring-boot-starter 和 spring-ai-openai-spring-boot-starter，
+ *    两者都会注册 EmbeddingClient（ollamaEmbeddingClient / openAiEmbeddingClient），
+ *    而 PgVectorStoreAutoConfiguration#vectorStore 需要一个唯一的 EmbeddingClient，
+ *    于是启动直接报 “required a single bean, but 2 were found”。
+ *    解决办法是在 application-{dev,prod}.yml 里
+ *    spring.ai.openai.embedding.enabled=false，只保留 Ollama 的 nomic-embed-text。
+ * 2. TokenTextSplitter、SimpleVectorStore 没有对应的自动配置类，必须手工声明，
+ *    否则 RAGController 里的 @Resource 注入会报 NoSuchBeanDefinitionException。
+ */
+@Configuration
+public class OllamaConfig {
+
+    @Bean
+    public TokenTextSplitter tokenTextSplitter() {
+        return new TokenTextSplitter();
+    }
+
+    @Bean
+    public SimpleVectorStore simpleVectorStore(EmbeddingClient embeddingClient) {
+        return new SimpleVectorStore(embeddingClient);
+    }
+
+}

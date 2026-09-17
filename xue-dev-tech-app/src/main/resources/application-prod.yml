@@ -37,6 +37,12 @@ spring:
       base-url: https://pro-share-aws-api.zcyai.com/
       api-key: sk-eEyfxptPgbfXd3Z164260740E0494161Bd8**找小傅哥申请
       embedding-model: text-embedding-ada-002
+      # 同 dev：只保留一个 EmbeddingClient，避免 PgVectorStore 自动装配注入歧义
+      embedding:
+        enabled: false
+    vectorstore:
+      pgvector:
+        dimensions: 768
     rag:
       embed: nomic-embed-text #nomic-embed-text、text-embedding-ada-002
 

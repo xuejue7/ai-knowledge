@@ -5,32 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8ddc4b2-b84c-4701-98fb-d1d3f044fb41" name="更改" comment="steam_api">
-      <change afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/java/cn/xue/config/OllamaConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/java/cn/xue/config/RedisClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/java/cn/xue/config/RedisClientConfigProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/resources/application-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/resources/application-prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/resources/application-test.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xue-dev-tech-trigger/src/main/java/cn/xue/dev/trigger/http/OllamaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xue-dev-tech-trigger/src/main/java/cn/xue/dev/trigger/http/OpenAiController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xue-dev-tech-trigger/src/main/java/cn/xue/dev/trigger/http/RAGController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xue-dev-tech-trigger/src/main/java/cn/xue/dev/trigger/package-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai-rag-knowledge.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xue-dev-tech-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xue-dev-tech-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xue-dev-tech-api/xue-dev-tech-api.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/xue-dev-tech-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xue-dev-tech-app/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xue-dev-tech-app/src/main/java/cn/bugstack/airag/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/java/cn/xue/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xue-dev-tech-app/xue-dev-tech-app.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/xue-dev-tech-trigger/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xue-dev-tech-trigger/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xue-dev-tech-trigger/xue-dev-tech-trigger.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xue-dev-tech-app/src/main/java/cn/xue/config/OllamaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/java/cn/xue/config/OllamaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xue-dev-tech-app/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xue-dev-tech-app/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xue-dev-tech-app/src/main/resources/application-prod.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +128,7 @@
       <workItem from="1789401002847" duration="362000" />
       <workItem from="1789401579380" duration="1912000" />
       <workItem from="1789403509248" duration="422000" />
-      <workItem from="1789656972731" duration="304000" />
+      <workItem from="1789656972731" duration="2506000" />
     </task>
     <task id="LOCAL-00001" summary="steam_api">
       <option name="closed" value="true" />
@@ -168,7 +146,23 @@
       <option name="project" value="LOCAL" />
       <updated>1789399198162</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="steam_api">
+      <option name="closed" value="true" />
+      <created>1789657315300</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1789657315300</updated>
+    </task>
+    <task id="LOCAL-00004" summary="steam_api">
+      <option name="closed" value="true" />
+      <created>1789657329633</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1789657329633</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

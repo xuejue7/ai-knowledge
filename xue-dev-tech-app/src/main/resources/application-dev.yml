@@ -28,7 +28,9 @@ spring:
       connection-test-query: SELECT 1
   ai:
     ollama:
-      base-url: http://192.168.1.109:11434
+      # 课程环境跑在本机 WSL 的 docker 容器里（ollama:0.5.10，映射 11434->11434）；
+      # 192.168.1.109 是课程虚拟机地址，本机开发请用 127.0.0.1
+      base-url: http://127.0.0.1:11434
       embedding:
         options:
           num-batch: 512
@@ -37,6 +39,18 @@ spring:
       base-url: https://pro-share-aws-api.zcyai.com/
       api-key: sk-eEyfxptPgbfXd3Z164260740E0494161Bd8**找小傅哥申请
       embedding-model: text-embedding-ada-002
+      # 关掉 OpenAI 的 EmbeddingClient 自动装配：ollama 与 openai 两个 starter 同时在类路径上，
+      # 会各自注册一个 EmbeddingClient，导致 PgVectorStoreAutoConfiguration 注入时出现
+      # "required a single bean, but 2 were found" 而启动失败。这里只保留 Ollama 的 nomic-embed-text。
+      # 若想改用 OpenAI 向量模型：把下面改成 enabled: false 到 ollama 的 embedding 上，
+      # 并同时调整 spring.ai.vectorstore.pgvector.dimensions 与 spring.ai.rag.embed。
+      embedding:
+        enabled: false
+    vectorstore:
+      pgvector:
+        # nomic-embed-text 输出 768 维。不显式指定时维度为 -1，PgVectorStore 会去调用
+        # EmbeddingClient.dimensions() 探测，失败则兜底 1536，建出的表和向量维度对不上。
+        dimensions: 768
     rag:
       embed: nomic-embed-text #nomic-embed-text、text-embedding-ada-002
 
@@ -45,7 +59,9 @@ spring:
 redis:
   sdk:
     config:
-      host: 192.168.1.109
+      # WSL 里的 redis:6.2 容器（映射 16379->6379，已用 PING 验证）。
+      # 注意不是 Windows 原生那个 6379；192.168.1.109 是课程虚拟机地址。
+      host: 127.0.0.1
       port: 16379
       pool-size: 10
       min-idle-size: 5
